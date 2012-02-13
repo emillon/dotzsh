@@ -1,0 +1,9 @@
+rbuilddep() {
+    grep-dctrl -sPackage -i -r -F Build-Depends,Build-Depends-Indep "\b$1\b" \
+            /var/lib/apt/lists/*_Sources \
+        | awk '{ print $2 }' \
+        | sort \
+        | uniq
+}
+
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
