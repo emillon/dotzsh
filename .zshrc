@@ -50,7 +50,14 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Vim-style commands {{{
 alias ':e'=vim
 alias ':q'=exit
-alias ':sp'='uxterm -tn $TERM -e "cd $PWD && $SHELL" &!'
+function :sp {
+  if (( $# == 0 ))
+  then
+    uxterm -tn "$TERM" -e "cd $PWD && $SHELL" &!
+  else
+    uxterm -tn "$TERM" -e "cd $1 && vim" &!
+  fi
+}
 # }}}
 # Command aliases {{{
 alias ls='ls -F --color=auto' 
