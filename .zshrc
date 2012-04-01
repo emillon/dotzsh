@@ -86,6 +86,10 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 # }}}
+# Ctrl-Arrows move word by word {{{
+bindkey '^[[1;5D' emacs-backward-word
+bindkey '^[[1;5C' emacs-forward-word
+# }}}
 
 # Load ~/.zsh.d/* {{{
 for zshrc_snipplet in ~/.zsh.d/* ; do
