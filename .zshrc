@@ -72,11 +72,6 @@ alias ls='ls -F --color=auto'
 # Don't try to expand '?' in URLs
 alias youtube-dl='noglob youtube-dl'
 # }}}
-# Suffix aliases {{{
-alias -s -- pdf=zathura
-alias -s -- ps=evince
-alias -s -- git='git clone'
-# }}}
 # Other aliases {{{
 mdcd ()
 {
