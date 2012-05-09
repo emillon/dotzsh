@@ -83,10 +83,6 @@ mdcd ()
   mkdir -p "$1"
   cd "$1"
 }
-
-git(){
-  hub "$@"
-}
 # }}}
 # C-x C-e opens $EDITOR {{{
 autoload -U edit-command-line
