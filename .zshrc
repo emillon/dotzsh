@@ -50,6 +50,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Vim-style commands {{{
 alias ':e'=vim
 alias ':q'=exit
+alias ':r'=r
 function :sp {
   if (( $# == 0 ))
   then
