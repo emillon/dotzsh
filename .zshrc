@@ -3,22 +3,6 @@ setopt autopushd
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Prompt {{{
-autoload -Uz promptinit
-promptinit
-prompt walters
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' stagedstr '%F{green}•%f'
-zstyle ':vcs_info:*' unstagedstr '%F{yellow}•%f'
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats ' [%b%u%c]'
-zstyle ':vcs_info:*' actionformats ' [%b%u%c]'
-precmd () { vcs_info }
-setopt prompt_subst
-
-PROMPT='%F{cyan}%n@%m %~$vcs_info_msg_0_ %# %f'
-RPROMPT=''
-# }}}
 # History {{{
 HISTSIZE=10000 
 SAVEHIST=10000 
@@ -94,4 +78,23 @@ bindkey '^[[1;5C' emacs-forward-word
 for zshrc_snipplet in ~/.zsh.d/* ; do
   source $zshrc_snipplet
 done
+# }}}
+
+# Prompt {{{
+autoload -Uz promptinit
+promptinit
+prompt walters
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' stagedstr '%F{green}•%f'
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}•%f'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats ' [%b%u%c]'
+zstyle ':vcs_info:*' actionformats ' [%b%u%c]'
+precmd () { vcs_info }
+setopt prompt_subst
+
+promptcolor=${host_color:-cyan}
+
+PROMPT='%F{$promptcolor}%n@%m %~$vcs_info_msg_0_ %# %f'
+RPROMPT=''
 # }}}
