@@ -3,6 +3,8 @@ setopt autopushd
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
+stty -ixon
+
 # History {{{
 HISTSIZE=10000 
 SAVEHIST=10000 
