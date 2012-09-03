@@ -7,3 +7,8 @@ rbuilddep() {
 }
 
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+
+# Review Release-Critical bugs
+rcal() {
+  rc-alert --exclude-tags 'SH+PI' -d TU | vim -
+}
