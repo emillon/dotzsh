@@ -45,6 +45,12 @@ mdcd ()
   mkdir -p "$1"
   cd "$1"
 }
+
+function vrecode {
+  for f in "$@" ; do
+    vim '+set fenc=utf8' +wq "$f"
+  done
+}
 # }}}
 # C-x C-e opens $EDITOR {{{
 autoload -U edit-command-line
