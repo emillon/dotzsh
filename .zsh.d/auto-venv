@@ -1,7 +1,7 @@
 # Suggest to load a virtualenv named like the current directory
 
 function chpwd_autovenv() {
-  local venvname=$(basename $PWD)
+  local venvname="$(basename $PWD)"
   local venvdir="$HOME/.virtualenvs/$venvname"
   local venvact="$venvdir/bin/activate"
 
