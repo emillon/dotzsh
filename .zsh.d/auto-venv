@@ -31,3 +31,17 @@ function chpwd_autovenv() {
 }
 
 chpwd_functions=(${chpwd_functions[@]} "chpwd_autovenv")
+
+function mkvenv() {
+  local venvname="$(basename $PWD)"
+  local venvdir="$HOME/.virtualenvs/$venvname"
+  local venvact="$venvdir/bin/activate"
+
+  if [ -e "$venvdir" ] ; then
+    echo '\e[31mA virtualenv with this name already exists\e[m'
+    return 1
+  fi
+
+  virtualenv "$venvdir"
+  source "$venvact"
+}
