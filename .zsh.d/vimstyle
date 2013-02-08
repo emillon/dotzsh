@@ -6,11 +6,11 @@ alias ':r'=r
 function :sp {
   if (( $# == 0 ))
   then
-    uxterm -tn "$TERM" -e "cd $PWD && $SHELL" &!
+    uxterm -tn "$TERM" -e "cd \"$PWD\" && $SHELL" &!
   else
     if [ -d "$1" ]
     then
-      uxterm -tn "$TERM" -e "cd $1 && $SHELL" &!
+      uxterm -tn "$TERM" -e "cd \"$1\" && $SHELL" &!
     else
       dir=$(dirname $1)
       file=$(basename $1)
