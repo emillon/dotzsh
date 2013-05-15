@@ -12,3 +12,11 @@ alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 rcal() {
   rc-alert --exclude-tags 'SH+PI' -d TU | vim -
 }
+
+# Show most recent build log, a la debi/debc
+deblog() {
+  local pkg=$(dpkg-parsechangelog | grep ^Source: | awk '{print $2}')
+  local ver=$(dpkg-parsechangelog | grep ^Version: | awk '{print $2}')
+  local arch=$(dpkg-architecture -qDEB_HOST_ARCH)
+  view ../${pkg}_${ver}_${arch}.build
+}
