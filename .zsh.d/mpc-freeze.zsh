@@ -12,3 +12,7 @@ function mpc-thaw() {
     mpc play
     mpc seek "$p"
 }
+
+function mpc-get() {
+    ssh "$1" 'zsh -c "source ~/.zsh.d/mpc-freeze.zsh;mpc-freeze"' | mpc-thaw
+}
