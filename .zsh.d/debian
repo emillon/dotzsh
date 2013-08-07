@@ -20,3 +20,25 @@ deblog() {
   local arch=$(dpkg-architecture -qDEB_HOST_ARCH)
   view ../${pkg}_${ver}_${arch}.build
 }
+
+quilt-mv() {
+  quilt add $1
+  quilt add $2
+  mv $1 $2
+}
+
+svn-bc() {
+    svn-buildpackage \
+        --svn-builder='pdebuild --pbuilder cowbuilder --buildresult ..' \
+        --svn-lintian \
+        "$@"
+}
+
+gbp-exp () {
+    git-buildpackage \
+        -uc -us \
+        --git-pbuilder \
+        --git-debian-branch=experimental \
+        --git-upstream-branch=upstream-experimental \
+        "$@"
+}
