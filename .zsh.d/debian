@@ -34,11 +34,16 @@ svn-bc() {
         "$@"
 }
 
-gbp-exp () {
+gbp-exp-nc () {
     git-buildpackage \
         -uc -us \
-        --git-pbuilder \
         --git-debian-branch=experimental \
         --git-upstream-branch=upstream-experimental \
+        "$@"
+}
+
+gbp-exp () {
+    gbp-exp-nc \
+        --git-pbuilder \
         "$@"
 }
