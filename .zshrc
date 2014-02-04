@@ -6,8 +6,8 @@ bindkey -e
 stty -ixon
 
 # History {{{
-HISTSIZE=10000 
-SAVEHIST=10000 
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 # }}}
 # Completion {{{
