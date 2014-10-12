@@ -45,3 +45,11 @@ function mkvenv() {
   virtualenv "$venvdir"
   source "$venvact"
 }
+
+function delvenv() {
+  local venvname="$(basename $PWD)"
+  local venvdir="$HOME/.virtualenvs/$venvname"
+  echo "\e[33mDeactivating and removing venv: $venvname\e[m"
+  deactivate
+  rm -rf "$venvdir"
+}
