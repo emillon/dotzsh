@@ -53,6 +53,7 @@ function vrecode {
 }
 # }}}
 # C-x C-e opens $EDITOR {{{
+export EDITOR=vim
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
